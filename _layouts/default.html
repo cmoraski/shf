@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO: Use jekyll-seo-tag for dynamic title, description, canonical, etc. -->
+  {% seo %}
+  <!-- Canonical URL for SEO (prevents duplicate content issues) -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
+  <!-- Performance: Preload CSS for faster rendering -->
+  <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <!-- Modern font: Link to Google Fonts for elegant typography (Montserrat for headings, Open Sans for body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Structured data: JSON-LD for LocalBusiness schema to improve SEO (e.g., Google rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.address.street }}",
+      "addressLocality": "Jamesville",
+      "addressRegion": "NY",
+      "postalCode": "13078",
+      "addressCountry": "US"
+    },
+    "telephone": "{{ site.address.phone }}",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": {{ site.address.coordinates.lat }},
+      "longitude": {{ site.address.coordinates.long }}
+    },
+    "openingHours": "Mo-Su 08:00-18:00",  <!-- Adjust based on actual hours -->
+    "priceRange": "$$$"  <!-- High-end indicator -->
+  }
+  </script>
+</head>
+<body>
+  {% include header.html %}
+  <main>
+    {{ content }}
+  </main>
+  {% include footer.html %}
+</body>
+</html>

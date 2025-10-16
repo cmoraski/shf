@@ -1,0 +1,27 @@
+<footer>
+  <div class="footer-container">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    <div class="footer-contact">
+      <!-- Location with SVG icon -->
+      <a href="https://www.google.com/maps/search/?api=1&query={{ site.address.street | url_encode }}" target="_blank" rel="noopener noreferrer" class="footer-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        {{ site.address.street }}<br>Jamesville, NY 13078
+      </a>
+      <!-- Email with SVG icon -->
+      <a href="mailto:{{ site.email }}" class="footer-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        {{ site.email }}
+      </a>
+    </div>
+    <div class="social-links">
+      <!-- Facebook SVG icon -->
+      <a href="{{ site.social.facebook }}" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V7.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.59l-.467 3.622h-3.123V24h6.126c.728 0 1.325-.597 1.325-1.325V1.325C24 .597 23.403 0 22.675 0z"/></svg>
+      </a>
+      <!-- Instagram SVG icon -->
+      <a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.263.16 2.804.068 7.153.014 8.433 0 8.841 0 12s.014 3.568.072 4.848C.263 21.206 2.804 23.74 7.153 23.933c1.28.058 1.688.072 4.847.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.888-2.741 7.081-7.09.058-1.28.072-1.689.072-4.848 0-3.159-.014-3.568-.072-4.848-.193-4.349-2.727-6.883-7.081-7.076C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-9.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>

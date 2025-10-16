@@ -1,0 +1,25 @@
+<header>
+  <div class="header-container">
+    <!-- Logo left: Linked to home, responsive -->
+    <div class="logo-container">
+      <a href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Smokey Hollow Farm Logo" width="200" height="50" loading="lazy">
+      </a>
+    </div>
+    
+    <!-- Hamburger toggle for mobile: CSS-only with checkbox -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span> <!-- Hamburger lines via CSS -->
+    </label>
+    
+    <!-- Nav right: Horizontal on desktop, vertical expand on mobile -->
+    <nav>
+      <ul>
+        {% for item in site.navigation %}
+          <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

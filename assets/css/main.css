@@ -1,0 +1,373 @@
+/* Base resets for modern look */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Elegant typography: Montserrat for headings (bold, classy), Open Sans for body (light, readable) */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FFFFFF; /* White background as specified */
+  color: #000000; /* Black text for high contrast */
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Reduced padding for sleeker edges */
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #000000; /* Black accents */
+}
+
+a {
+  color: #000000; /* Black links for classy feel */
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7; /* Subtle hover without underline for modernity */
+}
+
+/* Header: Flex for left/right alignment, sleek padding (replaces centered logo/nav for left-aligned logo and right-aligned nav) */
+header {
+  padding: 1.5rem 0;
+  /* Removed border-bottom for seamless flow */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo-container {
+  margin-bottom: 0; /* Remove bottom margin for inline alignment */
+}
+
+.logo-container img {
+  max-width: 200px; /* Adjusted for consistency; responsive */
+  height: auto;
+}
+
+/* Nav: Right-aligned, with transitions for sleek hover (updated for new structure) */
+header nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* Retained for smaller screens */
+}
+
+header nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Sleek spacing */
+  font-size: 0.9rem;
+  transition: border-bottom 0.3s ease; /* Sleek movement on hover */
+}
+
+header nav a:hover {
+  border-bottom: 2px solid #000000;
+  opacity: 1;
+}
+
+header nav a.active {
+  border-bottom: 2px solid #000000; /* Clear indicator for current page */
+}
+
+/* Hamburger menu: Hidden on desktop, visible on mobile (new for expandable mobile nav) */
+.nav-toggle {
+  display: none; /* Hidden checkbox */
+}
+
+.nav-toggle-label {
+  display: none; /* Hidden on desktop */
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #000000;
+  position: relative;
+  transition: transform 0.3s ease; /* Smooth animation */
+}
+
+.nav-toggle-label span::before {
+  content: '';
+  top: -8px;
+  position: absolute;
+}
+
+.nav-toggle-label span::after {
+  content: '';
+  bottom: -8px;
+  position: absolute;
+}
+
+/* Mobile menu toggle: Expand/collapse (new for sleek mobile experience) */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block; /* Show hamburger */
+  }
+
+  header nav {
+    display: none; /* Hide nav by default on mobile */
+    width: 100%;
+  }
+
+  .nav-toggle:checked ~ nav {
+    display: block; /* Expand on check */
+    animation: slide-down 0.3s ease; /* Sleek slide */
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* X animation for close */
+  .nav-toggle:checked + .nav-toggle-label span {
+    transform: rotate(45deg);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::after {
+    bottom: 0;
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Main content: Sleek, removed shadow and border-radius for seamless integration with header/footer; reduced bottom padding for less space before footer */
+main {
+  padding: 3rem 1rem 1rem 1rem;
+  background: #FFFFFF;
+}
+
+main img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners for modern look */
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle image shadows */
+  loading: lazy; /* Performance: Lazy loading for images */
+}
+
+/* Image showcases: For dispersed photos (e.g., in home, facilities, gallery, alumni pages) */
+.section-image {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Footer: Modernized with flex layout for alignment, icons via inline SVG for performance (no external dependencies), subtle padding; reduced top margin for less space after content */
+footer {
+  margin-top: 1rem;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #333333;
+  /* Removed border-top for seamless flow */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.footer-item:hover {
+  opacity: 0.7;
+}
+
+.footer-item svg {
+  width: 20px;
+  height: 20px;
+  fill: #000000;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.7;
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: #000000;
+}
+
+footer a {
+  color: #000000;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+/* Responsive: Mobile-first, with media queries for desktop (updated with mobile nav) */
+@media (max-width: 768px) {
+  main {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+  }
+  .footer-contact {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    padding: 0 2rem;
+  }
+}
+
+/* Page-specific styles: Clean, centered for high-end feel */
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;  /* Left-align for readability on pages like About */
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 1rem;
+  }
+}
+
+/* Hero on index: Simplified, centered (updated for minimal index page) */
+.hero {
+  text-align: center;
+  margin: 2rem 0; /* Reduced margin for sleeker feel */
+}
+
+.hero h1 {
+  font-size: 3rem; /* Increased for impact */
+  margin-bottom: 1rem;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded for modern look (updated from 0) */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+/* Teaser sections: Alternating layout for visual interest (retained for other pages) */
+.teaser {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.teaser img {
+  max-width: 600px;  /* Constrain for balance */
+  margin: 1rem auto;
+  display: block;
+}
+
+/* CTA: Black accent button for classiness (retained for other pages) */
+.cta {
+  text-align: center;
+  padding: 2rem;
+  background: #F8F8F8;  /* Subtle off-white for contrast */
+  border-radius: 8px;
+}
+
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #000000;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #333333;
+  opacity: 1;  /* Override general a:hover */
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem; /* Adjusted for mobile */
+  }
+  .teaser img {
+    max-width: 100%;
+  }
+}
+
+/* Centering for home page text elements */
+main h1,
+main p.tagline {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main p.tagline {
+  max-width: 600px; /* Constrain for better readability on wide screens */
+  margin-bottom: 2rem;
+}
